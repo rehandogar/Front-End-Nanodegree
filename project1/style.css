@@ -1,0 +1,261 @@
+* {
+	font-family: 'Lato', sans-serif;
+	/*border: 1px solid #000;*/
+}
+
+h1, p {
+	font-weight: 500;
+}
+
+.logo {
+	font-size: 29px;
+}
+
+h2, .project-card > p {
+	font-weight: 500;
+}
+
+header {
+	border-bottom: 2px solid #DDDDDD;
+	padding:10px 0px 10px 0px;
+}
+
+footer {
+	background: #555;
+	color: white;
+	width: 100%;
+	height: auto;
+	border-top: #333;
+	padding: 25px 0px;
+}
+
+a {
+	font-weight: 600;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a.button {
+	font-size: 15px;
+	border-radius: 2px;
+	padding: 7px 20px;
+}
+
+a.button-primary {
+	border: 2px solid #3498db;
+	color: #3498db;
+}
+
+a.button-white {
+	border: 2px solid #fff;
+	color: #fff;
+}
+
+.header-column {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.dp {
+	width: 100px;
+	height: 100px;
+	border:1px solid #CCCCCC;
+	padding:5px;
+}
+
+.main-title {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+	padding-left: 20px;
+}
+
+.top-margin {
+	margin: 20px 0px 0px 0px;
+}
+
+/* Skills and cards section */
+
+.skills {
+	padding: 100px 0px;
+}
+
+.primery-background {
+	background: #3498db;
+}
+
+.wrap-skill {
+	display: block;
+}
+
+.wrap-skill h5 {
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(30% - 15px);
+}
+
+.progress-frame {
+	background: rgba(245, 245, 245, 1);
+	margin-bottom: 0px;
+	width: 65%;
+	height: 5px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.progress-bar-custom {
+	background: rgba(65, 201, 110, 1);
+	width: 0%;
+	transition: 2s all ease-out;
+}
+
+.content {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+	padding: 0px 10px;
+}
+
+.invert-color {
+	color: white;
+}
+
+.card {
+	padding: 7px 0px;
+}
+
+/* Featured Work section */
+.project-card {
+	/*background-color:#DDDDDD;*/
+}
+
+.featured-work {
+	display: block;
+	min-height: 500px;
+	background: #ecf0f1;
+}
+
+.main-heading {
+	display: inline;
+	vertical-align: middle;
+}
+
+.heading {
+	padding: 50px 0px;
+}
+
+/* stylish boxes */
+.triangle {
+	height: 0px;
+	width: 0px;
+}
+
+.triangle-bottom-left {
+	border-left: 25px solid #000000;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid #000000;
+	border-right: 25px solid transparent;
+}
+
+.triangle-top-left {
+	border-left: 25px solid #000000;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid transparent;
+	border-right: 25px solid transparent;
+}
+
+.triangle-bottom-right {
+	border-left: 25px solid transparent;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid #000000;
+	border-right: 25px solid #000000;
+}
+
+.triangle-top-right {
+	border-left: 25px solid transparent;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid transparent;
+	border-right: 25px solid #000000;
+}
+
+.inline-triangle {
+	display: inline-block;
+}
+
+/* for contact section */
+
+.contact-me img {
+	height: 250px;
+	width: 345px;
+	display: inline;
+	float: right;
+}
+
+.contact-form {
+	display: inline-block;
+	width: 50%;
+}
+
+.contact-form  input, textarea {
+	display: block;
+	border: none;
+	border-bottom: 1px solid #FFF;
+	padding: 20px 0px;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 10px;
+	background: transparent;
+	color: #FFF;
+}
+
+.contact-form  *:focus {
+	outline: none;
+}
+
+
+/* fix for place holder color*/
+::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF;
+}
+
+:-ms-input-placeholder {
+   color: #FFF;
+}
+
+.contact-form  *:last-child {
+	border: none;
+}
+
+.contact-form  textarea {
+	height: 100px;
+}
+
+.one-post {
+	display: inline-flex;
+	border: 1px solid #444;
+	background: #DDDDDD;
+	color: #333;
+	font-weight: 400;
+}
+
+.one-post p {
+	margin-left: 10px;
+}
