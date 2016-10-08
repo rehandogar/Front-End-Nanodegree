@@ -6,6 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.mov = 1;
 };
 
 // Update the enemy's position, required method for game
@@ -14,6 +15,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.mov++;
+    if(this.mov < 610) {
+      this.x = this.mov + dt;
+    } else {
+      this.mov = 1;
+    }
+    this.y = 70;
+    // *
 };
 
 // Draw the enemy on the screen, required method for game
@@ -23,13 +32,17 @@ Enemy.prototype.render = function() {
 
 // Now write your own player class
 var Player = function() {
-  this.x = 200;
-  this.y = 100;
+  this.xPos = 2;
+  this.yPos = 5;
+  this.life = 3;
+  this.x = 300;
+  this.y = 300;
   this.sprite = 'images/char-boy.png'
 }
 
 Player.prototype.update = function (dt) {
-
+  this.x = 100 * this.xPos;
+  this.y = 75 * this.yPos;
 }
 
 Player.prototype.render = function () {
@@ -38,16 +51,24 @@ Player.prototype.render = function () {
 
 Player.prototype.handleInput = function (keyCode) {
   if(keyCode === 'up') {
-      this.y = this.y - 100;
+    if(this.yPos > 0) {
+      this.yPos--;
+    }
   }
   if(keyCode === 'down') {
-    this.y = this.y + 100;
+    if(this.yPos < 5) {
+      this.yPos++;
+    }
   }
   if(keyCode === 'right') {
-    this.x = this.x + 100;
+    if(this.xPos < 4) {
+      this.xPos++;
+    }
   }
   if(keyCode === 'left') {
-    this.x = this.x - 100;
+    if(this.xPos > 0) {
+      this.xPos--;
+    }
   }
 }
 // This class requires an update(), render() and
@@ -55,7 +76,8 @@ Player.prototype.handleInput = function (keyCode) {
 
 
 var player = new Player();
-var allEnemies = [];
+var enemy1 = new Enemy();
+var allEnemies = [enemy1];
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player

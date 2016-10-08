@@ -80,7 +80,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -90,6 +90,14 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+     function checkCollisions() {
+       allEnemies.forEach(function(enemy) {
+           if(enemy.x === player.x && enemy.y === player.y) {
+             player.life--;
+             Resources.onReady(init);
+           }
+       });
+     }
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
