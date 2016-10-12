@@ -91,12 +91,27 @@ var Engine = (function(global) {
      * render methods.
      */
      function checkCollisions() {
+       function between(x, min, max) {
+          return x >= min && x <= max;
+        }
        allEnemies.forEach(function(enemy) {
-           if(enemy.x === player.x && enemy.y === player.y) {
+           if(between(player.x, (enemy.x - 60), (enemy.x + 60)) && between(player.y, (enemy.y - 10), (enemy.y + 10))) {
              player.life--;
-             Resources.onReady(init);
+             init();
            }
        });
+       if(between(player.x, (gem.x - 60), (gem.x + 60)) && between(player.y, (gem.y - 10), (gem.y + 10))) {
+         player.score++;
+         player.renderText();
+         gem.update();
+         init();
+       }
+       if(between(player.x, (heart.x - 60), (heart.x + 60)) && between(player.y, (heart.y - 10), (heart.y + 10))) {
+         player.life++;
+         player.renderText();
+         heart.changePos()
+         reset();
+       }
      }
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
@@ -155,11 +170,19 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+        gem.render();
+
+        //rendering logic for heart
+        if((player.score%player.life) % 2 && player.score > player.life) {
+            heart.render();
+          }
+
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
         player.render();
+        player.renderText();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -168,6 +191,13 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        player.xPos = 2;
+        player.yPos = 5;
+        allEnemies.forEach(function(enemy) {
+            enemy.mov = 1;
+            enemy.y = 70;
+            enemy.random = Math.floor(Math.random() * 3) + 1;
+        });
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -179,7 +209,13 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Star.png',
+        'images/Gem Green.png',
+        'images/Gem Orange.png',
+        'images/Gem Blue.png',
+        'images/Selector.png',
+        'images/Heart.png'
     ]);
     Resources.onReady(init);
 
